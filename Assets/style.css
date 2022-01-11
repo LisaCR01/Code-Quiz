@@ -1,0 +1,65 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+}
+
+
+body{
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 300px;
+    margin-bottom: 300px;
+    background-color: rgb(115, 84, 112);
+}
+
+.rules_container{
+    border-color:rgb(115, 84, 112);
+    border-width: 5px;
+    border-style: solid; 
+    font-size: 20px; 
+}
+
+.rules_card {
+    background-color:rgb(166, 134, 163);
+    padding: 15px;
+    color: rgb(49, 35, 48);
+}
+
+.rules_title {
+    text-align: center;
+    font-size:25px;
+}
+
+.rules_wrapper {
+    padding : 5px
+    }
+
+.timer,
+.title,
+.btn_card
+ {
+    margin: 5px;
+    margin-bottom: 5px;
+    background-color:rgb(49, 35, 48);
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+}
+
+.title,
+.timer {
+    color:rgb(166, 134, 163);
+}
+
+.title,
+.timer,
+#start_btn {
+    font-size: 25px;
+    padding: 10px;
+}
+
+#start_btn {
+    background-color:rgb(143, 76, 158);
+    color: rgb(226, 197, 223);
+}
