@@ -36,18 +36,18 @@
     <div class="btn_card">
         <button id="start_btn">Start Quiz</button>
     </div>
-    <section class="quiz_outline">
-        <div class="question">
-            <!--where I need to add javascript-->
-        </div>
-        <div class="answer">
-            <!--where I need to add javascript-->
-        </div>
-    </section>
-    <section score_outline>
-        <h2 class="finished"></h2>
-        <!--need to use javascript to show final score-->
-        <!--need to use JavaScript to be able to type in name into leaderboard-->
+    <section class="quiz_card">
+        <h2 id="question" > Question</h2>
+        <section class="answers">
+            <select name=questQ onchange="getAns()" id="questP"  size="4"  >
+                <option id=achoice value="achoice"></option>
+                <option id=bchoice value="bchoice"></option>
+                <option id=cchoice value="cchoice"></option>
+                <option id=dchoice value="dchoice"></option>s
+                </optgroup>
+            </select>
+        </section>
+
     </section>
     <script src="script.js"></script>
   </body>
