@@ -2,8 +2,7 @@
 //question bank
 var questionBank=[
     {question:"How is a single line comment started in JavaScript ?",
-    //problem with viewing 'a' because of special characters.
-    ans:{a:"\<\!--",
+    ans:{a:"%",
     b:"#",
     c:"//",
     d:"- -"},
@@ -30,7 +29,6 @@ var questionBank=[
   d:"A way to repeatedly run a block of code - until a certain condition is met."},
   correct:"b"},
   
-  //problem with using actual semantic tags possibly get rid of proper tag
   {question:"In HTML which tags is JavaScript code found between?",
   ans:{a:"figure",
   b:"nav",
@@ -38,7 +36,14 @@ var questionBank=[
   d:"script"},
   correct:"d"},
   ];
+
+  const classToApply = 'incorrect' ;
+    if (ans == correct) {
+      classToApply = 'correct'
+    }
+    
   
+
 //when button clicked it disappears and timer starts
 //timer displayed instead of good luck
 var timeEl = document.querySelector(".timer");
@@ -74,7 +79,7 @@ button.addEventListener("click", startTimer)
 var istep=-1
 function startTimer(event) {
 if(istep==-1){  
-    document.querySelector(".rules_card").textContent=""  // event.stopPropagation();
+    document.querySelector(".rules_card").innerHTML=codeBlock // event.stopPropagation();
 
 setTime();
  ;}
@@ -89,16 +94,36 @@ function genQ(){
     else 
     {istep++;
     document.getElementById("questP").value="e"
-    document.getElementById("question").innerHTML=questionBank[istep].question
+    document.getElementById("javaselect").innerHTML=questionBank[istep].question
     document.getElementById("achoice").innerHTML=questionBank[istep].ans.a
     document.getElementById("bchoice").innerHTML=questionBank[istep].ans.b
     document.getElementById("cchoice").innerHTML=questionBank[istep].ans.c
     document.getElementById("dchoice").innerHTML=questionBank[istep].ans.d}
     }
+
     const selVal=[]
     function getAns(){
     selVal[istep]=document.getElementById("questP").value;
     if (selVal[istep]!=questionBank[istep].correct){secondsLeft-=2;console.log("-5")}
     genQ()
     }
+    
+    var codeBlock = 
+  '<section class="content">' +
+    '<h2 id="javaselect"></h2>'+
+    '<select name=questQ onchange="getAns()" id="questP"  size="4"  >' +
+    '<optgroup>' +
+    '<option id=achoice value="achoice">A</option>' +
+    '<option id=bchoice value="bchoice">B</option>' +
+    '<option id=cchoice value="cchoice">C</option>' +
+    '<option id=dchoice value="dchoice">D</option>' +
+    '</optgroup>' +
+    '</select>' +
+    '</section>'
+  ;
+
+    //codeBlock='<h1>text</h1>'
+
+    //document.getElementsByClassName("rules_card").innerHTML = codeBlock
+
     
