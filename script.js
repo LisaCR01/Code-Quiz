@@ -37,11 +37,8 @@ var questionBank=[
   correct:"d"},
   ];
 
-  const classToApply = 'incorrect' ;
-    if (ans == correct) {
-      classToApply = 'correct'
-    }
-    
+  
+
   
 
 //when button clicked it disappears and timer starts
@@ -79,9 +76,11 @@ button.addEventListener("click", startTimer)
 var istep=-1
 function startTimer(event) {
 if(istep==-1){  
+  button.parentNode.removeChild(button);
+  //button.disabled = true;document.getElementById("start_btn").innerHTML = ""
     document.querySelector(".rules_card").innerHTML=codeBlock // event.stopPropagation();
 
-setTime();
+setTime();button.disabled = true;
  ;}
 
  console.log("istep cr "+ istep)
@@ -101,10 +100,19 @@ function genQ(){
     document.getElementById("dchoice").innerHTML=questionBank[istep].ans.d}
     }
 
+    var failPic='<p>&#x2718; </p>'
+    var rightPic='<p>&#10004;</p>'
+  
     const selVal=[]
     function getAns(){
     selVal[istep]=document.getElementById("questP").value;
-    if (selVal[istep]!=questionBank[istep].correct){secondsLeft-=2;console.log("-5")}
+    if (selVal[istep].charAt(0)!=questionBank[istep].correct)
+    {secondsLeft-=5; 
+      //document.getElementById("try").style.color = "green";
+      document.getElementById("try").style.color = "rgb(234, 200, 231)"
+      document.getElementById("try").innerHTML = failPic}
+      else
+      {document.getElementById("try").style.color = "rgb(234, 200, 231)";document.getElementById("try").innerHTML = rightPic}
     genQ()
     }
     
@@ -121,9 +129,5 @@ function genQ(){
     '</select>' +
     '</section>'
   ;
-
-    //codeBlock='<h1>text</h1>'
-
-    //document.getElementsByClassName("rules_card").innerHTML = codeBlock
 
     
