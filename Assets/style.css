@@ -23,10 +23,13 @@ body{
 }
 
 .rules_card,
-.content  {
+.content,
+.finish_card,
+.leadership_card  {
     background-color:rgb(166, 134, 163);
     padding: 15px;
     color: rgb(49, 35, 48);
+    margin-top: 10px;
 }
 
 .rules_title,
@@ -86,4 +89,22 @@ select {
     background-color:rgb(234, 200, 231); 
     height: 100px;
     color: rgb(49, 35, 48);
+}
+
+input {
+    height: 50px;
+    width: 100%;
+    padding: 6px;
+    margin-top: 10px;
+    font-size:20px ;
+    border: 5px solid rgb(115, 84, 112);
+    text-align: center;
+}
+
+label {
+    text-align: center;
+}
+
+.leadership_card {
+    margin-top: 10px;
 }

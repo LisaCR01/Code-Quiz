@@ -37,6 +37,17 @@
         <button id="start_btn">Start Quiz</button>
         <h2 id="try"></h2>
     </div>
+    <div class="finish_card">
+        <h2 class="finish_title">All Done!</h2>
+        <form id="todo-form" method="POST">
+          <label for="todo-text"><h3>Let's add you to the leaderboard</h3> </label>
+          <input type="text" placeholder="Add Initials..." name="todo-text" id="todo-text" />
+        </form>
+    </div>
+    <div class=leadership_card>
+        <p>Scores on the leader board: <span id="todo-count">0</span></p>
+        <ul id="todo-list"></ul>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
