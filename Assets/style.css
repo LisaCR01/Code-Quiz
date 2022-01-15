@@ -50,7 +50,9 @@ body{
 
 .timer,
 .title,
-.btn_card
+.btn_card,
+.refresh_card
+
  {
     margin: 5px;
     margin-bottom: 5px;
@@ -67,14 +69,16 @@ body{
 
 .title,
 .timer,
-#start_btn {
+#start_btn,
+.refresh-button {
     font-size: 25px;
     padding: 10px;
 }
 
-#start_btn {
-    background-color:rgb(191, 122, 207);
-    color: rgb(49, 35, 48);
+#start_btn,
+.refresh-button {
+    background-color:rgb(115, 84, 112);
+    color: rgb(30, 21, 29);
     
 }
 
@@ -107,4 +111,8 @@ label {
 
 .leadership_card {
     margin-top: 10px;
+}
+
+@media screen and (max-width: 400px){
+    
 }

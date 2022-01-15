@@ -12,6 +12,8 @@
                <h2 class="title">JavaScript Fundamentals Quiz</h2> 
                <h2 class="timer">Good Luck!</h2>
     </header>
+    <div class="refresh_card"><button class="refresh-button">restart</button></div>
+        <h2 id="try2"></h2>
     <section class="rules_card"> 
         <h2 class="rules_title">The rules for this quiz</h2>
             <ol class="rules_container">
@@ -38,14 +40,14 @@
         <h2 id="try"></h2>
     </div>
     <div class="finish_card">
-        <h2 class="finish_title">All Done!</h2>
+        <h2 class="finish_title"></h2>
         <form id="todo-form" method="POST">
           <label for="todo-text"><h3>Let's add you to the leaderboard</h3> </label>
           <input type="text" placeholder="Add Initials..." name="todo-text" id="todo-text" />
         </form>
     </div>
     <div class=leadership_card>
-        <p>Scores on the leader board: <span id="todo-count">0</span></p>
+        <p> <span id="todo-count"></span></p>
         <ul id="todo-list"></ul>
     </div>
     <script src="script.js"></script>

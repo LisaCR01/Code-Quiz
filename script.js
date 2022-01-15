@@ -62,9 +62,13 @@ function setTime() {secondsLeft = 75;
        // Stops execution of action at set interval
        clearInterval(timerInterval);
        // Calls function to do leadership board
-     
-     timeEl.textContent = "Your score is "+ Math.max(secondsLeft,0);
-     document.querySelector(".rules_card").innerHTML=codeBlockend 
+       init()
+       document.getElementById("try").innerHTML = "all done"
+            timeEl.textContent = "Your score is "+ Math.max(secondsLeft,0);
+            document.querySelector(".rules_card").innerHTML="" 
+       //
+            document.getElementById("todo-form").style.display = "inline"
+
     }
      //need the max in here -in case my score goes negative. 
      else{timeEl.textContent = Math.max(secondsLeft,0) + " seconds left of quiz"};
@@ -74,6 +78,14 @@ function setTime() {secondsLeft = 75;
 var button = document.querySelector("#start_btn");
 
 button.addEventListener("click", startTimer)
+const refreshButton=document.querySelector('.refresh-button')
+
+const refreshPage = () => {
+  location.reload();
+
+}
+refreshButton.addEventListener('click', refreshPage)
+
 var istep=-1
 function startTimer(event) {
 if(istep==-1){  
@@ -146,7 +158,7 @@ var todos = [];
 function renderTodos() {
   // Clear todoList element and update todoCountSpan
   todoList.innerHTML = "";
-  todoCountSpan.textContent = todos.length;
+  todoCountSpan.textContent = "scores on the leaderboard " +todos.length;
 
   // Render a new li for each todo
   for (var i = 0; i < todos.length; i++) {
@@ -176,7 +188,7 @@ function init() {
   }
 
   // This is a helper function that will render todos to the DOM
-  renderTodos();
+  if(quizComplete==true){ renderTodos()};
 }
 
 function storeTodos() {
@@ -207,7 +219,7 @@ todoForm.addEventListener("submit", function(event) {
 
   // Store updated todos in localStorage, re-render the list
   storeTodos();
-  renderTodos();
+  if(quizComplete==true){ renderTodos()};
 
   setInterval(function(){ document.location.reload(); }, 3000);
 });
@@ -224,11 +236,13 @@ todoList.addEventListener("click", function(event) {
 
     // Store updated todos in localStorage, re-render the list
     storeTodos();
-    renderTodos();
+    if(quizComplete==true){ renderTodos()};
   }
 });
 
 // Calls init to retrieve data and render it to the page on load
 init()
+
+if(quizComplete==false){document.getElementById("todo-form").style.display = "none"}
 
     
