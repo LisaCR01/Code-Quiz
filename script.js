@@ -1,5 +1,5 @@
 
-//question bank
+// Multiple choice question bank, for the quiz taken by the user.
 var questionBank=[
     {question:"How is a single line comment started in JavaScript ?",
     ans:{a:"%",
@@ -37,15 +37,10 @@ var questionBank=[
   correct:"d"},
   ];
 
-  
-
-  
-
-//when button clicked it disappears and timer starts
-//timer displayed instead of good luck
+// When the user clicks the button,it disappears and a timer starts counting from 75 seconds.
+// The timer is displayed instead of good luck on the screen.
 var timeEl = document.querySelector(".timer");
 var mainEl = document.getElementById("main");
-// Selects element by id
 var secondsLeft = 75;
 var quizComplete=false
 var score=0
@@ -53,24 +48,21 @@ var score=0
 var maxQuest=questionBank.length
 var istep=-1
 
+// When the user completes the quiz the timer stops.
 function setTime() {secondsLeft = 75;
     quizComplete=false
-   // Sets interval in variable
    var timerInterval = setInterval(function() {
      secondsLeft--
      if(secondsLeft <= 0 ||quizComplete==true) {
-       // Stops execution of action at set interval
+       //Stops execution of action at set interval
        clearInterval(timerInterval);
-       // Calls function to do leadership board
+       //Reveals leaderboard to user
        init()
        document.getElementById("try").innerHTML = "all done"
             timeEl.textContent = "Your score is "+ Math.max(secondsLeft,0);
             document.querySelector(".rules_card").innerHTML="" 
-       //
             document.getElementById("todo-form").style.display = "inline"
-
-    }
-     //need the max in here -in case my score goes negative. 
+    } 
      else{timeEl.textContent = Math.max(secondsLeft,0) + " seconds left of quiz"};
    }, 1000);
    }
@@ -78,6 +70,8 @@ function setTime() {secondsLeft = 75;
 var button = document.querySelector("#start_btn");
 
 button.addEventListener("click", startTimer)
+
+// User can restart the quiz at any point by clicking the button "refreshButton".
 const refreshButton=document.querySelector('.refresh-button')
 
 const refreshPage = () => {
@@ -90,13 +84,15 @@ var istep=-1
 function startTimer(event) {
 if(istep==-1){  
   button.parentNode.removeChild(button);
-  //button.disabled = true;document.getElementById("start_btn").innerHTML = ""
+  // button.disabled = true;document.getElementById("start_btn").innerHTML = "".
     document.querySelector(".rules_card").innerHTML=codeBlock // event.stopPropagation();
 
 setTime();button.disabled = true;
  ;}
 
  console.log("istep cr "+ istep)
+
+ // genQ initiates the questions for the user.
 genQ() ;
 
 }
@@ -113,16 +109,18 @@ function genQ(){
     document.getElementById("dchoice").innerHTML=questionBank[istep].ans.d}
     }
 
+    // When the user answers the question incorrectly they are presented with a cross.
+    // When the user answers the question correctly they are presented with a tick.
    var failPic='<p>&#x2718; </p>'
     var rightPic='<p>&#10004;</p>'
     
-  
+  // Computer compares the user's answer to the correct answer in the question bank.
     const selVal=[]
     function getAns(){
     selVal[istep]=document.getElementById("questP").value;
     if (selVal[istep].charAt(0)!=questionBank[istep].correct)
+    // When the user answers incorrectly they lose 5 seconds.
     {secondsLeft-=5; 
-      //document.getElementById("try").style.color = "green";
       document.getElementById("try").style.color = "rgb(234, 200, 231)"
       document.getElementById("try").innerHTML = failPic}
       else
@@ -130,7 +128,7 @@ function genQ(){
     genQ()
     }
 
-    
+  // Replaces the quiz rules when the timer starts.  
     var codeBlock = 
   '<section class="content">' +
     '<h2 id="javaselect"></h2>'+
@@ -145,8 +143,7 @@ function genQ(){
     '</section>'
   ;
   
-//the leaderboard
-
+// computer stores content for the leaderboard.
 var todoInput = document.querySelector("#todo-text");
 var todoForm = document.querySelector("#todo-form");
 var todoList = document.querySelector("#todo-list");
@@ -154,18 +151,17 @@ var todoCountSpan = document.querySelector("#todo-count");
 
 var todos = [];
 
-// The following function renders items in a todo list as <li> elements
+// The following function renders items in a todo list as <li> elements.
 function renderTodos() {
-  // Clear todoList element and update todoCountSpan
+  // Clear todoList element and update todoCountSpan.
   todoList.innerHTML = "";
   todoCountSpan.textContent = "scores on the leaderboard " +todos.length;
 
-  // Render a new li for each todo
+  // Render a new li for each todo.
   for (var i = 0; i < todos.length; i++) {
     var todo = todos[i];
 
     var li = document.createElement("li");
-    //changed this line here
     li.textContent = todo.initialS +" High Score "+todo.score;
     li.setAttribute("data-index", i);
 
@@ -177,70 +173,59 @@ function renderTodos() {
   }
 }
 
-// This function is being called below and will run when the page loads.
+// This sets up the leaderboard and finds any prior scores that are in local storage.
 function init() {
-  // Get stored todos from localStorage
   var storedTodos = JSON.parse(localStorage.getItem("todos"));
-
-  // If todos were retrieved from localStorage, update the todos array to it
   if (storedTodos !== null) {
     todos = storedTodos;
   }
-
-  // This is a helper function that will render todos to the DOM
   if(quizComplete==true){ renderTodos()};
 }
 
 function storeTodos() {
-  //sort first
+  // Sorts the scores from highest to lowest before saving.
   todos.sort(function(a, b){return b.score - a.score});
   console.log(todos)
-  // Stringify and set key in localStorage to todos array
+  // Stringify and set key in localStorage to todos array.
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-// Add submit event to form
+// Allows user to put initials along with their score into the leaderboard.
 todoForm.addEventListener("submit", function(event) {
   event.preventDefault();
 
   var todoText = todoInput.value.trim();
 
-  // Return from function early if submitted todoText is blank
+  // If user puts no initials into the leaderboard then the computer can not save it.
   if (todoText === "") {
     return;
   }
 
-  // Add new todoText to todos array, clear the input
+  // After initials have been put into input and stored in local storage it is cleared.
   var elementNew={initialS:todoText,score:secondsLeft}
-  // Add new todoText to todos array, clear the input
   todos.push(elementNew)
   todoInput.value = "";
   
-
-  // Store updated todos in localStorage, re-render the list
   storeTodos();
   if(quizComplete==true){ renderTodos()};
 
   setInterval(function(){ document.location.reload(); }, 3000);
 });
 
-// Add click event to todoList element
+// User can delete their score from the leaderboard by clicking the delete button next to their initials and score.
 todoList.addEventListener("click", function(event) {
   var element = event.target;
-
-  // Checks if element is a button
   if (element.matches("button") === true) {
-    // Get its data-index value and remove the todo element from the list
     var index = element.parentElement.getAttribute("data-index");
     todos.splice(index, 1);
 
-    // Store updated todos in localStorage, re-render the list
+    // Computer deletes this score from local storage.
     storeTodos();
     if(quizComplete==true){ renderTodos()};
   }
 });
 
-// Calls init to retrieve data and render it to the page on load
+// The computer calls init initializes the leaderboard but does not display it until the quiz is over.
 init()
 
 if(quizComplete==false){document.getElementById("todo-form").style.display = "none"}
