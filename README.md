@@ -1,7 +1,13 @@
 # Code-Quiz
 
-In this project I created a timed quiz on JavaScript fundamentals that stores high scores.
-The purposes of this was to produce a clean, polished and responsive user interface, through writing dynamically updated HTML and CSS powered by JavaScript code. 
+In this project I created a timed quiz on JavaScript fundamentals that stores high scores.The purposes of this was to produce a clean, polished and responsive user interface, through writing dynamically updated HTML and CSS powered by JavaScript code. 
+
+## Technologies Used
+
+* HTML
+* Custom CSS
+* JavaScript
+
 
 ## Criteria that I met to achieve this
 
