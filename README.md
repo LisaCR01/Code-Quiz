@@ -32,6 +32,5 @@ In this project I created a timed quiz on JavaScript fundamentals that stores hi
 ## Contact Information
 
 My Email:[lcrgunn@gmail.com](mailto:lcrgunn@gmail.com)
-My Email: lcrgunn@gmail.com
 
 
