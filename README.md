@@ -20,11 +20,11 @@ In this project I created a timed quiz on JavaScript fundamentals that stores hi
 ## Deployed Application
 
 ### Before Starting the Quiz
-![Deployed Application](./Assets/Images/deployed_application.png)
+![Deployed Application before starting the Quiz](./Assets/Images/deployed_application.png)
 ### During the Quiz
-![Deployed Application](./Assets/Images/Quiz-In-Use.png)
+![Deployed Application during the Quiz](./Assets/Images/Quiz-In-Use.png)
 ### The Leader Board after the Quiz
-![Deployed Application](./Assets/Images/LeaderBoard.png)
+![Deployed Application after the Quiz](./Assets/Images/LeaderBoard.png)
 
 
 [Link to Deployed Application](https://lisacr01.github.io/Code-Quiz/)
