@@ -13,6 +13,12 @@ The purposes of this was to produce a clean, polished and responsive user interf
 
 ## Deployed Application
 
-![Deployed Application](./deployed_application.png?raw=true)
+![Deployed Application](./Assets/Images/deployed_application.png)
+
+![Deployed Application](./Assets/Images/Quiz-In-Use.png)
+
+![Deployed Application](./Assets/Images/LeaderBoard.png)
+
 
 [Link to Deployed Application](https://lisacr01.github.io/Code-Quiz/)
+
