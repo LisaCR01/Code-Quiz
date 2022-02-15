@@ -29,3 +29,8 @@ In this project I created a timed quiz on JavaScript fundamentals that stores hi
 
 [Link to Deployed Application](https://lisacr01.github.io/Code-Quiz/)
 
+## Contact Information
+
+My Email: lcrgunn@gmail.com
+
+
